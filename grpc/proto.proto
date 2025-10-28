@@ -1,0 +1,12 @@
+syntax = "proto3";
+option go_package = "ITUServer/grpc/proto";
+import "google/protobuf/timestamp.proto";
+
+message ClientMessage {
+  google.protobuf.Timestamp timestamp = 1;
+  string message = 2;
+}
+
+service ChitChat {
+  rpc Chat (stream ClientMessage) returns (stream ClientMessage) {};
+}

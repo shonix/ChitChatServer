@@ -25,7 +25,8 @@ const (
 type ClientMessage struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Timestamp     *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	From          string                 `protobuf:"bytes,2,opt,name=from,proto3" json:"from,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -67,6 +68,13 @@ func (x *ClientMessage) GetTimestamp() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *ClientMessage) GetFrom() string {
+	if x != nil {
+		return x.From
+	}
+	return ""
+}
+
 func (x *ClientMessage) GetMessage() string {
 	if x != nil {
 		return x.Message
@@ -78,10 +86,11 @@ var File_proto_proto protoreflect.FileDescriptor
 
 const file_proto_proto_rawDesc = "" +
 	"\n" +
-	"\vproto.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"c\n" +
+	"\vproto.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"w\n" +
 	"\rClientMessage\x128\n" +
-	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage28\n" +
+	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x12\n" +
+	"\x04from\x18\x02 \x01(\tR\x04from\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage28\n" +
 	"\bChitChat\x12,\n" +
 	"\x04Chat\x12\x0e.ClientMessage\x1a\x0e.ClientMessage\"\x00(\x010\x01B\x16Z\x14ITUServer/grpc/protob\x06proto3"
 

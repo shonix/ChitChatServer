@@ -4,7 +4,8 @@ import "google/protobuf/timestamp.proto";
 
 message ClientMessage {
   google.protobuf.Timestamp timestamp = 1;
-  string message = 2;
+  string from = 2;
+  string message = 3;
 }
 
 service ChitChat {

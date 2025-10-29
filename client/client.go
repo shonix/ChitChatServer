@@ -9,6 +9,7 @@ import (
 	"os"
 	"strings"
 	"sync"
+	"unicode/utf8"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -99,6 +100,12 @@ func msgInterface(stream proto.ChitChat_ChatClient, client *Client) {
 		if strings.ToLower(text) == "exit" {
 			fmt.Println("Bye!")
 			return
+		}
+
+		//validate message format is utf8
+		if !utf8.ValidString(text) {
+			fmt.Println("Error: Message is not valid UTF-8")
+			log.Printf("Event=MessageRejected Reason=InvalidUtf8")
 		}
 
 		// Validate message length (128 characters max)

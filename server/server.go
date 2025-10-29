@@ -9,6 +9,7 @@ import (
 	"sync"
 
 	"google.golang.org/grpc"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 type ChatServer struct {
@@ -67,7 +68,7 @@ func (s *ChatServer) Chat(stream proto.ChitChat_ChatServer) error {
 		log.Println("Client disconnected", username)
 
 		leaveMsg := &proto.ClientMessage{
-			Timestamp: connMsg.Timestamp,
+			Timestamp: timestamppb.Now(),
 			From:      "server",
 			Message:   fmt.Sprintf("%s has left the chat", username),
 		}

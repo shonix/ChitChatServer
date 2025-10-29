@@ -1,9 +1,8 @@
 syntax = "proto3";
-option go_package = "ITUServer/grpc/proto";
-import "google/protobuf/timestamp.proto";
+option go_package = "ChitChat/grpc";
 
 message ClientMessage {
-  google.protobuf.Timestamp timestamp = 1;
+  int64 lamport_timestamp = 1;
   string from = 2;
   string message = 3;
 }

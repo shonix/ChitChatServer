@@ -1,0 +1,13 @@
+Enter username: 2025/10/29 17:43:19 Event=JoinSent LamportTime=1
+
+[Lamport: 2] server: Participant Soren joined Chit Chat at Lamport time 2
+[Client-Soren] 2025/10/29 17:43:19 Event=MessageReceived LamportTime=2 From=server Message=Participant Soren joined Chit Chat at Lamport time 2 LocalLamportTime=3
+[Client-Soren] 2025/10/29 17:43:21 Event=MessageSent LamportTime=4 Message=Hello everyone!
+[Lamport: 6] server: Participant Peter joined Chit Chat at Lamport time 6
+[Client-Soren] 2025/10/29 17:43:22 Event=MessageReceived LamportTime=6 From=server Message=Participant Peter joined Chit Chat at Lamport time 6 LocalLamportTime=7
+[Client-Soren] 2025/10/29 17:43:23 Event=MessageSent LamportTime=8 Message=This is a test message
+[Lamport: 12] Peter: Hi Soren!
+[Client-Soren] 2025/10/29 17:43:24 Event=MessageReceived LamportTime=12 From=Peter Message=Hi Soren! LocalLamportTime=13
+[Lamport: 13] server: Participant Carl joined Chit Chat at Lamport time 13
+[Client-Soren] 2025/10/29 17:43:25 Event=MessageReceived LamportTime=13 From=server Message=Participant Carl joined Chit Chat at Lamport time 13 LocalLamportTime=14
+Bye!
